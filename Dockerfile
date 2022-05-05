@@ -28,7 +28,7 @@ FROM scratch
 
 
 COPY --from=just-python-dependencies ["/", "/"]
-COPY ["./src", "/app/"]
+COPY ["./src", "/app/src"]
 USER python
 
 #ENTRYPOINT "/opt/entrypoint.sh"
