@@ -9,7 +9,8 @@ RUN apk add bash \
 
 WORKDIR "/app"
 USER python
-RUN pip3 install -r requirements.txt  
+RUN pip3 install -r requirements.txt \
+    && pip3 install -r requirements-test.txt 
 
 
 FROM python:3.10-alpine as just-python-dependencies 
@@ -29,7 +30,8 @@ FROM scratch
 
 COPY --from=just-python-dependencies ["/", "/"]
 COPY ["./src", "/app/src"]
+
 USER python
 
-#ENTRYPOINT "/opt/entrypoint.sh"
+ENTRYPOINT "/opt/entrypoint.sh"
 
