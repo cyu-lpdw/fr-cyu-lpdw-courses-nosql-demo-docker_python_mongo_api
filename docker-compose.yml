@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+
+  db:
+    image: mongo
+    volumes:
+    - ./.data/data/db:/data/db
+
+  app:
+    build: .
+    command: ["python3", "/app/src/cyu/lpdw/pymo/main.py"]
+
