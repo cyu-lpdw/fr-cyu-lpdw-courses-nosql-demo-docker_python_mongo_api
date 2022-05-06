@@ -9,5 +9,5 @@ services:
 
   app:
     build: .
-    command: ["python3", "/app/src/cyu/lpdw/pymo/main.py"]
+    command: ["python3", "/app/src/pymo/lpdw/pymo/main.py"]
 
