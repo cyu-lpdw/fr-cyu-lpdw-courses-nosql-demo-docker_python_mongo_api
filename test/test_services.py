@@ -34,20 +34,26 @@ class ServicesTestClass(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # you probably have some existing code above here
-        cls.loop = asyncio.get_event_loop()
+        cls.loop = ServicesTestClass._create_event_loop()
+
+    @classmethod
+    def _create_event_loop(cls):
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        return loop
+
+    # @async_test
+    # async def test_create(self):
+    #     """ Unit test: create a new user.
+    #     """
+    #     data_test = {"email": "camille.martin@example.org", "firstname": "Camille", "lastname": "Martin"}
+    #     assert await self.users_collection.find({}).to_list(None) == []
+    #     result = await self.users_collection.insert_one(data_test)
+    #     assert result.inserted_id
+    #     assert len(await self.users_collection.find({"email": "camille.martin@example.org"}).to_list(None)) == 1
 
     @async_test
     async def test_create(self):
-        """ Unit test: create a new user.
-        """
-        data_test = {"email": "camille.martin@example.org", "firstname": "Camille", "lastname": "Martin"}
-        assert await self.users_collection.find({}).to_list(None) == []
-        result = await self.users_collection.insert_one(data_test)
-        assert result.inserted_id
-        assert len(await self.users_collection.find({"email": "camille.martin@example.org"}).to_list(None)) == 1
-
-    @async_test
-    async def test_service(self):
         user = User(email="camille.martin@example.org", firstname="Camille", lastname="Martin")
         result = await self.users_service.create(user)
         assert result.inserted_id

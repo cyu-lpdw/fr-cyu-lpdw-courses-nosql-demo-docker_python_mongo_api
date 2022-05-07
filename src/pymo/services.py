@@ -2,18 +2,21 @@
 
 """
 """
+from motor.motor_asyncio import AsyncIOMotorCollection
+
 from pymo.models import User
 
 
 class UsersService(object):
 
-    def __init__(self, conn):
+    def __init__(self, collection: AsyncIOMotorCollection):
         """
         Create a new instance of {UsersService}.
 
         :param conn: The database connection.
         """
-        pass
+        self.collection: AsyncIOMotorCollection = collection
+        print(type(collection))
 
     async def create(self, user: User):
         """
