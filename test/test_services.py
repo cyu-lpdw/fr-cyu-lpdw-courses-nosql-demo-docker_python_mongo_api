@@ -5,11 +5,13 @@
 :see: https://dev.to/jphutchins/update-python-unittest-with-asyncio-tests-for-aiohttp-and-more-31aj
 """
 import asyncio
+import logging
 import unittest
 import sys
 from os.path import join, dirname, abspath
 from unittest import async_case
 
+from pymo.utils import setup_logging
 
 sys.path.append(abspath(join(dirname(__file__), "..", "src")))
 print(sys.path)
@@ -21,13 +23,18 @@ from utils import async_test
 
 from mongomock_motor import AsyncMongoMockClient
 
+setup_logging()
+
+
 class ServicesTestClass(unittest.TestCase):
+
 
     def setUp(self):
         """
 
         :return:
         """
+        logging.info("Setup")
         self.users_collection = AsyncMongoMockClient()['tests']["users"]
         self.users_service = UsersService(self.users_collection)
 

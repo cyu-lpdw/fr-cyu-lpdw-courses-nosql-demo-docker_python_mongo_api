@@ -3,7 +3,7 @@ set -e
 
 PYTHON_BIN="$(which python3)"
 
-export PYTHONPATH="${PYTHONPATH}:/app/lib/python3.10"
+export PYTHONPATH="/app/src:/app/lib/python3.10"
 export PATH="${PATH}:/app/.local/bin"
 
 
