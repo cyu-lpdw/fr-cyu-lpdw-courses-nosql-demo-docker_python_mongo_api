@@ -7,8 +7,8 @@ export PYTHONPATH="/app/src:/app/lib/python3.10"
 export PATH="${PATH}:/app/.local/bin"
 
 
-echo "Container's IP address: `awk 'END{print $1}' /etc/hosts`"
-echo "$1"
+# echo "Container's IP address: `awk 'END{print $1}' /etc/hosts`"
+# echo "$1"
 if [ "$1" = 'test' ]; then
   echo '{"command": "test"}'
   cd /app/test \

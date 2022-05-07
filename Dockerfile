@@ -39,5 +39,5 @@ WORKDIR "/app/src"
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
 
-CMD ["python3", "main.py"]
+CMD ["python3", "pymo/main.py"]
 

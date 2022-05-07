@@ -9,5 +9,9 @@ services:
 
   app:
     build: .
-    command: ["python3", "/app/src/pymo/lpdw/pymo/main.py"]
+    depends_on: [db]
+    ports: 
+      - 8000:8000
+ 
+
 

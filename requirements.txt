@@ -3,3 +3,4 @@ odmantic~=0.4.0
 pyaml~=21.10.1
 pydantic[email]~=1.8.2
 python-json-logger~=2.0.2
+uvicorn~=0.17.6
