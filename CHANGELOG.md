@@ -2,6 +2,12 @@
 
 ## Development steps
 
+### [v0.0.3.1-devel](https://github.com/cyu-lpdw/fr-cyu-lpdw-courses-nosql-demo-docker_python_mongo_api/tree/v0.0.3.1-devel)
+
+- Write documentation (README).
+- Update CHANGELOG.
+
+
 ### [v0.0.3.0-devel](https://github.com/cyu-lpdw/fr-cyu-lpdw-courses-nosql-demo-docker_python_mongo_api/tree/v0.0.3.0-devel)
 
 - Containerize!
