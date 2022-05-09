@@ -14,9 +14,6 @@
 [![codecov](https://codecov.io/gh/cyu-lpdw/fr-cyu-lpdw-courses-nosql-demo-docker_python_mongo_api/branch/devel/graph/badge.svg?token=IGALD1N09C)](https://codecov.io/gh/cyu-lpdw/fr-cyu-lpdw-courses-nosql-demo-docker_python_mongo_api)
 -->
 
-> A set of modern Python libraries under development to simplify the execution of reusable routines by different projects.
-
-
 ## Table of Contents
 
 * [Synopsis](#synopsis)
