@@ -160,6 +160,10 @@ Thank you to their authors for sharing their knowledge with our team.
 
 - `#todo`
 
+### Version management
+
+- [Semver 2.0.0](https://semver.org/)
+
 ### Unit tests
 
 - [Unit test log output with python](https://memotut.com/en/8a92970f0f6e5309e1df/)
