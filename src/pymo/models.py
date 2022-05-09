@@ -12,7 +12,7 @@ class User(Model):
     The user model.
     """
 
-    email: EmailStr = Field(primary_field=True)
+    email: EmailStr = Field(...)
     """ The e-mail address is the unique identifier of a user. """
 
     firstname: str = Field(...)

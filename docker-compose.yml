@@ -5,11 +5,17 @@ services:
   db:
     image: mongo
     volumes:
-    - ./.data/data/db:/data/db
+    - ./.data/data/db:/data/db:rw
 
   app:
     build: .
     depends_on: [db]
+    volumes:
+    - ./conf:/app/conf:rw
+    - ./src:/app/src:rw
+    - ./test:/app/test:rw
     ports: 
       - 8000:8000
- 
+    environment:
+      DATABASE_URI: "mongodb://db:27017/"
+      DATABASE_NAME: "pymo"
