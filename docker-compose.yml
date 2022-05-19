@@ -3,7 +3,7 @@ version: "3"
 services:
 
   db:
-    image: mongo
+    image: mongo:mongo:5.0.8-nanoserver
     volumes:
     - ./.data/data/db:/data/db:rw
 
@@ -15,7 +15,7 @@ services:
     - ./src:/app/src:rw
     - ./test:/app/test:rw
     ports: 
-      - 8000:8000
+      - 8081:8081
     environment:
       DATABASE_URI: "mongodb://db:27017/"
       DATABASE_NAME: "pymo"

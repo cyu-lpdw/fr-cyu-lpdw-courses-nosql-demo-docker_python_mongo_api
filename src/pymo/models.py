@@ -3,11 +3,12 @@
 """
 Module containing models.
 """
-from odmantic import Model, Field
+from beanie import Document
+from pydantic import Field
 from pydantic.networks import EmailStr
 
 
-class User(Model):
+class User(Document):
     """
     The user model.
     """

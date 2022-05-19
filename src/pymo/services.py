@@ -2,26 +2,30 @@
 
 """
 """
+import logging
 from unittest import mock
-from unittest.mock import AsyncMock
 
-from motor.motor_asyncio import AsyncIOMotorCollection
-from odmantic import Model
-from pymongo.results import InsertOneResult
+from beanie import Document
+from dotmap import DotMap
 
+from pymo.db import DatabaseConnection
 from pymo.models import User
 
-# request_mock = AsyncMock()
-# request_mock.__aenter__.return_value = request_mock
-# request_mock.json.return_value = { 'hello' : 'world'}
+LOGGER = logging.getLogger(__name__)
 
 
-class OdmanticEngineMock(mock.AsyncMock):
-    pass
+class BaseService(object):
 
-class UsersService(object):
+    def __init__(self, db, model: Document):
+        self.db, self.model = db, model
 
-    def __init__(self, db_engine, model: Model):
+
+class UsersService(BaseService):
+
+    LOG = LOGGER.getChild("UsersService")
+    """ The class logger. """
+
+    def __init__(self, db_engine, model: User):
         """
         Create a new instance of {UsersService}.
 
@@ -31,12 +35,23 @@ class UsersService(object):
         self.model = model
         print(type(self.model))
 
-    async def create(self, user: User):
+    def __init__(self, db):
+        """ Create a new instance of MetricsService.
         """
-        Create a new user.
-        """
-        oid: InsertOneResult = await self.engine.save(user)
-        print(oid)
-        o = await self.engine.find_one(self.model, getattr(self.model, "id"))
-        print("type(o)", type(o))
-        return o
+        self.LOG.debug("__init__(db)", extra={"db": db})
+        super().__init__(db, User)
+
+    async def create(self, metric: User):
+        self.LOG.info("create")
+        res = await metric.create()
+        found = await self.model.find_one(getattr(self.model, "id") == res.id)
+        # if found is None:
+        #    raise UserCreateErrorAPI
+        return found
+
+
+def get_services():
+    LOGGER.debug("get_services()")
+    db = DatabaseConnection().db
+    users_service = UsersService(db)
+    return DotMap(users=users_service)
