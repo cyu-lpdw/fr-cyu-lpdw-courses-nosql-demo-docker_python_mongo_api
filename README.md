@@ -1,6 +1,6 @@
 # PymoAPI example: asynchronous API in Python using FastAPI, Odmantic and MongoDB. 
 
-> An example of CRUD services (REST) developed in Python with FastAPI, Odmandic and MongoDB.
+> An example of CRUD services (REST) developed in Python with FastAPI, Beanie and MongoDB.
 
 <!--
 [![Tests](https://github.com/cyu-lpdw/fr-cyu-lpdw-courses-nosql-demo-docker_python_mongo_api/actions/workflows/tests.yml/badge.svg)](https://github.com/cyu-lpdw/fr-cyu-lpdw-courses-nosql-demo-docker_python_mongo_api/actions/workflows/tests.yml)
@@ -35,7 +35,7 @@
 
 ## <a name="synopsis">Synopsis</a>
 
-An example of CRUD services (REST) developed in Python with FastAPI, Odmandic and MongoDB.
+An example of CRUD services (REST) developed in Python with FastAPI, Beanie and MongoDB.
 
 ## <a name="requirements">Requirements</a>
 
