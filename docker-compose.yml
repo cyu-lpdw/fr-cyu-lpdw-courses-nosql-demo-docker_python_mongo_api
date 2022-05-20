@@ -3,7 +3,7 @@ version: "3"
 services:
 
   db:
-    image: mongo:mongo:5.0.8-nanoserver
+    image: mongo:5.0.8
     volumes:
     - ./.data/data/db:/data/db:rw
 
